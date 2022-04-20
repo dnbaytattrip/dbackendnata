@@ -3,7 +3,7 @@ const Router = express.Router()
 const saveData = require('./routesController/saveInputData')
 const getData = require('./routesController/getData')
 
-Router.get('/', getData)
+Router.get('/getinfo', getData)
 
 Router.post('/saveinfo', saveData)
 
