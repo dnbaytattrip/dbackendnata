@@ -11,6 +11,9 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 ///connecting to database
 connectDB()
+app.get('/', (req, res) => {
+    res.json({ sms: "hello" })
+})
 const server = app.listen(process.env.PORT, () => {
     console.log(`listening to port${process.env.PORT}`)
 
