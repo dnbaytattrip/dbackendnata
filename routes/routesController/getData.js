@@ -2,7 +2,7 @@ const Info = require('../../database/models/Info')
 
 const getData = async (req, res) => {
     try {
-        const jane = await Info.find();
+        const jane = await Info.find().sort({ createdAt: -1 })
         if (jane) {
             return res.status(200).json({ jane })
 
