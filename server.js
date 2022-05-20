@@ -14,7 +14,7 @@ connectDB()
 app.get('/', (req, res) => {
     res.json({ sms: "hello from dnata" })
 })
-const PORT = process.env.PORT || 7000
+const PORT = process.env.PORT || 5050
 const server = app.listen(PORT, () => {
     console.log(`listening to port${PORT}`)
 
