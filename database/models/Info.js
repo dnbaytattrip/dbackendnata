@@ -1,14 +1,10 @@
 const mongoose = require('mongoose');
-
 const Schema = mongoose.Schema;
-
 
 const infoSchema = new Schema({
     name: {
         type: String,
-
         trim: true
-
     },
 
     email: {
@@ -16,16 +12,12 @@ const infoSchema = new Schema({
         trim: true
     },
 
-
     number: {
         type: Number,
     },
     country: {
         type: String,
     },
-
-
-
 
 }, { timestamps: true })
 const Info = mongoose.model('Info', infoSchema);
