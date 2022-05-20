@@ -14,8 +14,9 @@ connectDB()
 app.get('/', (req, res) => {
     res.json({ sms: "hello from dnata" })
 })
-const server = app.listen(process.env.PORT, () => {
-    console.log(`listening to port${process.env.PORT}`)
+const PORT = process.env.PORT || 7000
+const server = app.listen(PORT, () => {
+    console.log(`listening to port${PORT}`)
 
 })
 app.use(Router)
