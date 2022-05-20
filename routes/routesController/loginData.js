@@ -1,4 +1,5 @@
 const Login = require('../../database/models/login')
+const createToken = require('../../utils/createToken')
 
 const loginData = async (req, res) => {
     const { email, password } = req.body
@@ -8,15 +9,16 @@ const loginData = async (req, res) => {
         if (jane) {
             const matched = await Login.findOne({ passcode: password });
             if (matched) {
-                return res.status(200).json({ text: "success" })
+                const token = createToken(matched._id)
+                return res.status(200).json({ text: "success", token })
             }
             else {
-                return res.status(200).json({ text: "failure" })
+                return res.status(200).json({ text: "Password failure" })
 
             }
         }
         else {
-            res.status(200).json({ text: " not found" })
+            res.status(200).json({ text: "Email not found" })
         }
 
 
