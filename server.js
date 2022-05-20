@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }));
 ///connecting to database
 connectDB()
 app.get('/', (req, res) => {
-    res.json({ sms: "hello from dnata" })
+    res.json({ sms: "hello from dnata updated" })
 })
 const PORT = process.env.PORT || 5050
 const server = app.listen(PORT, () => {
