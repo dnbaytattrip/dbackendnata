@@ -24,7 +24,7 @@ const loginData = async (req, res) => {
 
     }
     catch (e) {
-        res.status(400).json({ e: e })
+        res.status(400).json({ e })
         console.log(e)
 
     }
