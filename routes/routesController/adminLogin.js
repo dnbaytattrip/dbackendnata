@@ -1,13 +1,14 @@
-const User = require('../../database/models/User')
+const Admin = require('../../database/models/Admin')
 const createToken = require('../../utils/createToken')
 const bcrypt = require('bcryptjs');
-const loginData = async (req, res) => {
+
+const adminLogin = async (req, res) => {
     const { email, password } = req.body
 
     try {
-        const user = await User.findOne({ email: email });
-        if (user) {
-            const matched = await bcrypt.compare(password, user.password)
+        const admin = await Admin.findOne({ email: email });
+        if (admin) {
+            const matched = await bcrypt.compare(password, admin.password)
 
             if (matched) {
                 const token = createToken(matched._id)
@@ -30,7 +31,5 @@ const loginData = async (req, res) => {
 
     }
 
-
-
 }
-module.exports = loginData; 
+module.exports = adminLogin; 

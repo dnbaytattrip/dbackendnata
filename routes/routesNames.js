@@ -6,7 +6,7 @@ const loginData = require('./routesController/loginData')
 const signupData = require('./routesController/signupData')
 const checkUser = require('../middleware/checkUser')
 
-Router.get('/getinfo', checkUser, getData)
+Router.get('/getinfo', getData)
 Router.post('/saveinfo', saveData)
 Router.post('/login', loginData)
 Router.post('/signup', signupData)

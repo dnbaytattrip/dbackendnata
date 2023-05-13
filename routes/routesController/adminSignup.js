@@ -1,14 +1,14 @@
-const User = require('../../database/models/User')
+const Admin = require('../../database/models/Admin')
 const createToken = require('../../utils/createToken')
 const bcrypt = require('bcryptjs');
 
-const signupData = async (req, res) => {
-    const { name, mobile, password, email } = req.body
+const adminSignup = async (req, res) => {
+    const { email, password } = req.body
 
     try {
         const hashed_password = await bcrypt.hash(password, 7)
         const user = await User.create({
-            name, mobile, password: hashed_password, email
+            email, password: hashed_password
         });
         const token = createToken(user._id)
         return res.status(200).json({ text: "success", token })
@@ -22,4 +22,4 @@ const signupData = async (req, res) => {
 
 
 }
-module.exports = signupData; 
+module.exports = adminSignup; 

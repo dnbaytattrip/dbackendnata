@@ -2,13 +2,13 @@ const Info = require('../../database/models/Info')
 
 const getData = async (req, res) => {
     try {
-        const jane = await Info.find().sort({ createdAt: -1 })
-        if (jane) {
-            return res.status(200).json({ jane })
+        const data = await Info.find().sort({ createdAt: -1 })
+        if (data) {
+            return res.status(200).json({ data })
 
         }
         else {
-            return res.status(200).json({ jane: null })
+            return res.status(400).json({ error: "no data found" })
 
         }
 

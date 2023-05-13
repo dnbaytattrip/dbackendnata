@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const Login = require('../database/models/login')
+const User = require('../database/models/User')
 
 const jwtKey = process.env.JWT_KEY
 const checkUser = (req, res, next) => {
