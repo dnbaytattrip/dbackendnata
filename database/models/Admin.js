@@ -10,7 +10,7 @@ const adminSchema = new Schema({
     },
 
     password: {
-        type: Number,
+        type: String,
     },
 
 }, { timestamps: true })

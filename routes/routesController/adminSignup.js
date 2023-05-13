@@ -7,7 +7,7 @@ const adminSignup = async (req, res) => {
 
     try {
         const hashed_password = await bcrypt.hash(password, 7)
-        const user = await User.create({
+        const user = await Admin.create({
             email, password: hashed_password
         });
         const token = createToken(user._id)

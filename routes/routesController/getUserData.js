@@ -1,8 +1,9 @@
-const Info = require('../../database/models/Info')
+const User = require('../../database/models/User')
+const checkAdmin = require('../../middleware/checkAdmin')
 
-const getData = async (req, res) => {
+const getUserData = async (req, res) => {
     try {
-        const data = await Info.find().sort({ createdAt: -1 })
+        const data = await User.find().sort({ createdAt: -1 })
         if (data) {
             return res.status(200).json({ data })
 
@@ -20,4 +21,4 @@ const getData = async (req, res) => {
 
 
 }
-module.exports = getData; 
+module.exports = getUserData; 

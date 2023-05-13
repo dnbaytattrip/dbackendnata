@@ -1,9 +1,8 @@
 const jwt = require('jsonwebtoken');
-const User = require('../database/models/User')
 const Admin = require('../database/models/Admin')
 
 const jwtKey = process.env.JWT_KEY
-const checkUser = (req, res, next) => {
+const checkAdmin = (req, res, next) => {
 
     const { authorization } = req.headers;
     if (!authorization) {
@@ -17,13 +16,12 @@ const checkUser = (req, res, next) => {
         }
 
         const { id } = payload;
-        const user = await Login.findById(id)
+        const user = await Admin.findById(id)
         req.user = user;
 
-        console.log(req.user)
         next();
     })
 
 }
 
-module.exports = checkUser; 
+module.exports = checkAdmin; 
