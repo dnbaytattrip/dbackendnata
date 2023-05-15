@@ -12,7 +12,11 @@ const adminSchema = new Schema({
     password: {
         type: String,
     },
+    role: {
+        type: String,
+        default: 'admin'
 
+    },
 }, { timestamps: true })
 const Admin = mongoose.model('Admin', adminSchema);
 module.exports = Admin; 
