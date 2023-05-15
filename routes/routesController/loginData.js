@@ -10,7 +10,7 @@ const loginData = async (req, res) => {
             if (user) {
 
 
-                const token = createToken(matched._id)
+                const token = createToken(user._id)
                 return res.status(200).json({ text: "success", token, user: user })
 
 
