@@ -2,25 +2,32 @@ const User = require('../../database/models/User')
 const createToken = require('../../utils/createToken')
 const bcrypt = require('bcryptjs');
 const loginData = async (req, res) => {
-    const { email, password } = req.body
+    const { name, email, image, SECRET_KEY } = req.body
 
     try {
-        const user = await User.findOne({ email: email });
-        if (user) {
-            const matched = await bcrypt.compare(password, user.password)
+        if (process.env.SECRET_KEY == SECRET_KEY) {
+            const user = await User.findOne({ email: email });
+            if (user) {
 
-            if (matched) {
+
                 const token = createToken(matched._id)
-                return res.status(200).json({ text: "success", token, role: user.role })
+                return res.status(200).json({ text: "success", token, user: user })
+
+
             }
             else {
-                return res.status(200).json({ text: "Password failure" })
+                const user = await User.create({
+                    name, email, image
+                });
+                const token = createToken(user._id)
+                return res.status(200).json({ text: "success", token, user: user })
 
             }
         }
         else {
-            res.status(200).json({ text: "Email not found" })
+            return res.status(400).json({ text: "Invalid login" })
         }
+
 
 
     }

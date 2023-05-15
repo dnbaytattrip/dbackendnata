@@ -15,12 +15,12 @@ const adminLogin = async (req, res) => {
                 return res.status(200).json({ text: "success", token, role: admin.role })
             }
             else {
-                return res.status(200).json({ text: "Password failure" })
+                return res.status(400).json({ text: "Password failure" })
 
             }
         }
         else {
-            res.status(200).json({ text: "Email not found" })
+            res.status(400).json({ text: "Email not found" })
         }
 
 

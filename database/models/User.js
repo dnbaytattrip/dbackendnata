@@ -6,10 +6,6 @@ const userSchema = new Schema({
         type: String,
         trim: true
     },
-    mobile: {
-        type: String,
-        trim: true
-    },
 
 
     email: {
@@ -17,8 +13,10 @@ const userSchema = new Schema({
         trim: true
     },
 
-    password: {
+    image: {
         type: String,
+
+
     },
     role: {
         type: String,
