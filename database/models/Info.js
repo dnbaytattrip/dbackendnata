@@ -13,7 +13,7 @@ const infoSchema = new Schema({
     },
 
     number: {
-        type: Number,
+        type: String,
     },
     country: {
         type: String,
